@@ -4,11 +4,25 @@
 divide() {
 	local n=$1
 	local d=$2
+	local sign=""
 
 	if [[ $d -eq 0 ]]
 	then
 		echo "#"
 		return 1
+	fi
+
+	if [[ $(($n * $d)) -lt 0 ]]
+	then
+		sign="-"
+	fi
+	if [[ $n < 0 ]]
+	then
+		let "n = -1 * n"
+	fi
+	if [[ $d < 0 ]]
+	then
+		let "d = -1 * d"
 	fi
 
 	let "int_part = n / d"
@@ -20,7 +34,7 @@ divide() {
 		let "dec_part = dec_part / 10 + 1"
 	fi
 
-	echo "$int_part.$dec_part"
+	echo "$sign$int_part.$dec_part"
 }
 
 
