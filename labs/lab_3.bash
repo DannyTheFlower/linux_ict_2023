@@ -7,7 +7,7 @@ TAB="   "
 MID_PATH="├──"
 END_PATH="└──"
 
-total_dirs=1
+total_dirs=0
 total_files=0
 
 # $1 - directory, $2 - prefix before mid- or end-path
